@@ -21,7 +21,6 @@ router.post('/registrar/heroi', async function (req,res){
     }
 })
 
-
 // rota que lista herois
 router.get('/heroi', async function (req,res){
     try{

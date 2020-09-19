@@ -4,6 +4,7 @@ const {DesastreSchema} = require('./Desastre');
 const crypto = require('crypto');
 
 
+
 const HeroiSchema = new mongoose.Schema({
     nomeReal : {
         type : String,
@@ -37,6 +38,10 @@ const HeroiSchema = new mongoose.Schema({
         },
         lowercase : true
     },
+    disponivel : {
+        type : Boolean,
+        default : true
+    }
     
 })
 

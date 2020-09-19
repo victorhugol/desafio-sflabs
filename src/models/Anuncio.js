@@ -1,4 +1,4 @@
-const mongooseAnuncio = require('../database/connection');
+const mongoose = require('../database/connection');
 const {cidades} = require('./Cidade');
 const {desastre} = require('./Desastre');
 const {HeroiSchema} = require('./Heroi');
@@ -6,7 +6,7 @@ const {HeroiSchema} = require('./Heroi');
 
 
 
-const AnuncioSchema = new mongooseAnuncio.Schema({
+const AnuncioSchema = new mongoose.Schema({
     desastre : {
         type : String,
         enum : desastre,
@@ -20,12 +20,12 @@ const AnuncioSchema = new mongooseAnuncio.Schema({
 
 })
 
-// function validate() {
-//     console.log(this.disaster)
-// }
+function validate() {
+    console.log(this.disaster)
+}
 
 
 
-const AnuncioModel = new mongooseAnuncio.model('Anuncio',AnuncioSchema);
+const AnuncioModel = new mongoose.model('Anuncio',AnuncioSchema);
 
 module.exports = AnuncioModel;

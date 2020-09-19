@@ -5,7 +5,7 @@ routerAnuncio.use(express.json());
 
 
 
-
+//  rpta que publica os anuncios
 routerAnuncio.post('/registar/anuncio', async function (req,res){
     try{
         var anuncio = await AnuncioModel.create(req.body);
@@ -15,6 +15,7 @@ routerAnuncio.post('/registar/anuncio', async function (req,res){
     }
 })
 
+//  rota que lista os anuncios
 routerAnuncio.get('/anuncio', async function (req,res){
     try{
         var anuncio = await AnuncioModel.find({});

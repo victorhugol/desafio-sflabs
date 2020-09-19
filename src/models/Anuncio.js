@@ -1,6 +1,6 @@
 const mongooseAnuncio = require('../database/connection');
 const {cidades} = require('./Cidade');
-const {desastre} = require('./Disastre');
+const {desastre} = require('./Desastre');
 const {HeroiSchema} = require('./Heroi');
 
 
@@ -14,10 +14,10 @@ const AnuncioSchema = new mongooseAnuncio.Schema({
     },
     cidades : {
         type : String,
-        enum : cidades,
+        enum : Object.keys(cidades),
         required : true
     },
-    
+
 })
 
 // function validate() {

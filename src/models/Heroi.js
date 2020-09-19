@@ -1,6 +1,6 @@
 const mongoose = require('../database/connection');
 const {CidadeSchema} = require('./Cidade');
-const DesastreSchema = require('./Desastre');
+const {DesastreSchema} = require('./Desastre');
 
 
 

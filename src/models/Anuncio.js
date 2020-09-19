@@ -26,6 +26,6 @@ const AnuncioSchema = new mongooseAnuncio.Schema({
 
 
 
-const Anuncio = new mongooseAnuncio.model('Anuncio',AnuncioSchema);
+const AnuncioModel = new mongooseAnuncio.model('Anuncio',AnuncioSchema);
 
-module.exports = Anuncio;
+module.exports = AnuncioModel;

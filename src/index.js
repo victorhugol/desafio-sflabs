@@ -1,12 +1,13 @@
 const express = require('express');
-const { route } = require('./routes/router');
 const app = express();
-const router = require('./routes/router')
+const routerHeroi = require('./routes/routerHeroi')
+const routerAnuncio = require('./routes/routerAnuncio');
+
 
 app.use(express.json());
 
-app.use(router);
-
+app.use(routerHeroi);
+app.use(routerAnuncio);
 
 const PORT = process.env.PORT | 8000
 

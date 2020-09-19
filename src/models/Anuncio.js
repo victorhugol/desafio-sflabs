@@ -1,10 +1,7 @@
 const mongoose = require('../database/connection');
 const {cidades} = require('./Cidade');
 const {desastres} = require('./Desastre');
-const {HeroiSchema, HeroiModel} = require('./Heroi');
-
-
-
+const {HeroiModel} = require('./Heroi');
 
 const AnuncioSchema = new mongoose.Schema({
     desastre : {
@@ -17,22 +14,22 @@ const AnuncioSchema = new mongoose.Schema({
         enum : cidades,
         required : true
     },
-    herois : {
-        type : [String],
-        set : setHerois
-    }
-
+    herois : [String]
 })
 
 
-async function setHerois(){
-    var herois = await HeroiModel.find({cidade : this.cidade,
-                                        trabalhoEmEquipe : "sim"|"indiferente",
-                                        disponivel : true});
-    return herois;
-}
+// async function setHerois(){
+//     console.log(this.cidade)
+//     var herois = await HeroiModel.find({cidade: {"name" : this.cidade}});
+//     console.log(herois)
+//     return herois;
+// }
 
-
+AnuncioSchema.pre('save', async function(){
+    console.log(this.cidade)
+    var herois = await HeroiModel.find({});
+    this.herois = herois;
+})
 
 const AnuncioModel = new mongoose.model('Anuncio',AnuncioSchema);
 

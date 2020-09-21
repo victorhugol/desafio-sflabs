@@ -1,6 +1,6 @@
 # Desafio SFlabs
 
-### Instalar dependencia
+### Instalar dependencias
 
 ```bash 
   npm install

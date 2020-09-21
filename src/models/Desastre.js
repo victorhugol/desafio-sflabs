@@ -26,4 +26,8 @@ const DesastreSchema = new mongoose.Schema({
 })
 
 
-module.exports = {DesastreSchema,desastres};
+var DesastreModel = mongoose.model('Desastres',DesastreSchema);
+
+
+
+module.exports = {DesastreSchema,DesastreModel,desastres};

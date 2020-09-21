@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/heroesApp';
+const url = 'mongodb://localhost:27017/heroes';
 
 
 

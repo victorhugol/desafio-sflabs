@@ -36,7 +36,7 @@ router.put('/atualiza/heroi', async function(req,res){
     try{
         var heroiAtualizado = await HeroiModel
                             .findOneAndUpdate({codinome : req.query.codinome},
-                                            {codinome : req.body},
+                                            req.body,
                                             useFindAndMody=false);
         return res.send({ok : "Dados Atualizados"});
     }catch(err){

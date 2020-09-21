@@ -1,6 +1,5 @@
 const mongoose = require('../database/connection');
-const {CidadeSchema} = require('./Cidade');
-const {DesastreSchema} = require('./Desastre');
+const {desastres} = require('./Desastre');
 const crypto = require('crypto');
 
 
@@ -17,13 +16,14 @@ const HeroiSchema = new mongoose.Schema({
     },
 
     desastres : {
-        type : [DesastreSchema],
+        type : [String],
         required : true
     },
 
     cidade : {
-        type: [CidadeSchema],
-        required : true
+        type: [String],
+        required : true,
+
     },
 
     trabalhoEmEquipe : {
@@ -46,12 +46,13 @@ const HeroiSchema = new mongoose.Schema({
 })
 
 
+
+
 HeroiSchema.pre('save',function(){
     
     this.nomeReal = crypto.createHmac('sha256', this.nomeReal)
                    .update('sflabs')
                    .digest('hex');
-    console.log(this.nomeReal);
 })
 
 

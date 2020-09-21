@@ -18,12 +18,7 @@ const AnuncioSchema = new mongoose.Schema({
 })
 
 
-// async function setHerois(){
-//     console.log(this.cidade)
-//     var herois = await HeroiModel.find({cidade: {"name" : this.cidade}});
-//     console.log(herois)
-//     return herois;
-// }
+
 
 AnuncioSchema.pre('save', async function(){
     console.log(this.cidade)

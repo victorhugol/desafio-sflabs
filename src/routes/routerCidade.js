@@ -9,7 +9,7 @@ router.use(express.json());
 router.post('/registrar/cidade', async function (req,res){
     try{
         var cidade = CidadeModel.create(req.body); 
-        return res.send(cidade.name);
+        return res.send(cidade);
     }catch(err){
         return res.status(400).send({res : err})
     }
@@ -26,27 +26,27 @@ router.get('/cidades', async function (req,res){
 })
 
 // rota que atualiza cidade
-router.put('/atualiza/cidade', async function(req,res){
-    try{
-        var cidade = await cidade
-                            .findOneAndUpdate({name : req.query.name},
-                                            {name : req.body},
-                                            useFindAndMody=false);
-        return res.send({ok : "Dados Atualizados"});
-    }catch(err){
-        return res.status(204).send({erro : err})
-    }
-})
+// router.put('/atualiza/cidade', async function(req,res){
+//     try{
+//         var cidade = await cidade
+//                             .findOneAndUpdate({name : req.query.name},
+//                                             {name : req.body},
+//                                             useFindAndMody=false);
+//         return res.send({ok : "Dados Atualizados"});
+//     }catch(err){
+//         return res.status(204).send({erro : err})
+//     }
+// })
 
-//deleta cidade pelo nome
-router.delete('/delete/cidade',async function(req,res){
-    try{
-        var deleted = await CidadeModel.findOneAndDelete({name : req.body.name});
-        return res.send({ok : "ok"})
-    }catch(err){
-        return res.status(204).send({erro : "Heroi não encontrado!"})
-    }
-})
+// //deleta cidade pelo nome
+// router.delete('/delete/cidade',async function(req,res){
+//     try{
+//         var deleted = await CidadeModel.findOneAndDelete({name : req.body.name});
+//         return res.send({ok : "ok"})
+//     }catch(err){
+//         return res.status(204).send({erro : "Heroi não encontrado!"})
+//     }
+// })
 
 
 
